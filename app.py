@@ -19,11 +19,11 @@ JOBS=[
     'id':3,
     'title':'Frontend Engineer',
     'location':'Remote',
-    'salary':'Rs.25,00,00'
+    'salary':'Rs.20,00,00'
   },
   {
     'id':4,
-    'title':'Data Analyst',
+    'title':'Backend Engineer',
     'location':'San Francisco,USA',
     'salary':'$120,000'
   }
