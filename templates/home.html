@@ -2,49 +2,34 @@
 <html>
   <head>
     <title>madhav</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>madhav</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-      h1{
-        font-size: 40px;
-        font-family:Arial;
-        font-weight:600;
-        color:rgb(50,50,50);
-        text-align: center;
-      }
       #banner{
+        height: 320px;
+        object-fit: cover;
         width:100%;
-        height:365px;
-        object: fit cover;;
-      }
-      h2{
-        font-family:Arial;
-        font-size:32px;
-        color: rgb(100, 100, 100);
-        text-align:center;
-        font-weight:normal;
-      }
-      .bodytext{
-        font-family:Arial;
-        color:rgb(80,80,80);
-        text-align:center;
-      }
-      #container{
-        max-width:720px;
-        margin:0 auto 0 auto;
       }
       
     </style>
   </head>
   <body>
-    <div id='container'>
-    <h1> The Oasis Careers</h1>
-    <img id="banner" src='https://madhav-careers-website--madhavar844.repl.co/static/banner.jpg' height=320px>
-    <h2>About Oasis</h2>
-    <p class='bodytext'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <h2>Open Position</h2>
-    <p class='bodytext'>TODO -show the jobs here</p>
-    <div style="text-align:center;">
-    <button>Contact Us</button>
-      <p>Copy right 2022</p>
+    <div class='container'>
+    <h1 class='text-center mt-2 mb-4'> {{ company_name }} CAREERS</h1>
+    <img id="banner" class='img-fluid' src='https://madhav-careers-website--madhavar844.repl.co/static/banner.jpg'>
+    <h2 class='text-center mt-2 mb-4'>About Oasis</h2>
+    <p class='text-center lead'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h2 class='text-center mt-2 mb-4'>Open Positions</h2>
+    <p >
+      {% for job in jobs %}
+       {% include 'jobitems.html' %}
+      {% endfor %}
+    </p>
+    <div class='text-center'>
+    <button class='btn btn-primary btn-lg'>Contact Us</button>
+      <p class='mt-4'>Copy right 2022</p>
     </div>
     </div>
   </body>
