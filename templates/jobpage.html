@@ -1,0 +1,45 @@
+<!Doctype>
+<html>
+  <head>
+    <title>{{job.title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      #banner{
+        height: 320px;
+        object-fit: cover;
+        width:100%;
+        margin-bottom:16px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    <img id="banner" class='img-fluid' src='/static/banner.jpg'>
+     <h1 class='text-center mt-2 mb-4'> OASIS CAREERS</h1>
+    <div class="container mt-4">
+    <h3 class="mb-4">{{ job.title }}</h4>
+    <p>{{job.location}}</p>
+    
+    <h4>Requirements</h4>
+    <ul>
+      {% for req in job.requirements.split("\n") %}
+      <li>{{ req }}</li>
+      {% endfor %}
+    </ul>
+    <h4>Responsibilities</h4>
+     <ul>
+      {% for res in job.responsibilities.split("\n") %}
+      <li>{{ res }}</li>
+      {% endfor %}
+    </ul>
+    <h4>Salary</h4>
+    <p>{{job.currency}}{{job.salary}}</p>
+    </div>
+    
+    
+    {% include 'footer.html' %}
+  </body>
+</html>

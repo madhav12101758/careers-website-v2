@@ -1,5 +1,6 @@
-from sqlalchemy import create_engine,text
 import os
+
+from sqlalchemy import create_engine, text
 
 db_connection_string=os.environ['DB_CONNECTION_STRING']
 engine = create_engine(db_connection_string,connect_args={
@@ -20,5 +21,17 @@ def get_jobs_from_db():
     for row in result_all:
       jobs.append(row._mapping)
     return jobs
+def load_job_from_db(id):
+  with engine.connect() as conn:
+    result=conn.execute(
+      text("SELECT*FROM jobs WHERE  id = :val"),
+      {"val": id}
+    )
+    rows = result.fetchone()
+    if rows is None:
+      return None
+    else:
+      job_dict = dict(zip(result.keys(), rows))
+      return job_dict
 
 
