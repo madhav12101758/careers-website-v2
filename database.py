@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine,text
 import os
 
-db_connection_string="mysql+pymysql://7w4c0lf1nb6kynz9zb2d:pscale_pw_9LbadRAHNsquIBMTaUygmCULY3b6R4mO7GNBmPLbYzQ@aws.connect.psdb.cloud/oasis?charset=utf8mb4"
+db_connection_string=os.environ['DB_CONNECTION_STRING']
 engine = create_engine(db_connection_string,connect_args={
         "ssl": {
             "ssl_ca": "ca.pem",
